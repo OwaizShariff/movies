@@ -1,13 +1,16 @@
 import React from 'react';
 import axios from 'axios';
-import Layout from "./Layout";
 import { useState, useEffect } from "react";
 import { Preview } from '@mui/icons-material';
+import Header from "./Header";
+import SearchIcon from '@mui/icons-material/Search';
 
-function Main() {
+function Main(props) {
   const [movies, setMovies ] = useState([]);
-
   const [visible, setVisible ] = useState(5);
+  const [search, setSearch ] = useState('');
+  
+  const img1 = "https://image.tmdb.org/t/p/w500" ;
 
   const showMoreItems = () => {
     setVisible((visible) => visible + 5);
@@ -28,20 +31,50 @@ function Main() {
   },[])
   
   console.log(movies);
+  
+  const result = () => {
+    if(search) {
+      const MyResult = movies.filter((movie) => {
+        return movie.title.toLowerCase().includes(search.toLowerCase());
+      });
+      return MyResult ? (
+        MyResult.map((movie) => 
+          <div key={movie.id} className="container" >
+          <img className="photo" src={img1 + movie.poster_path} alt="" />
+          </div>
+      )
+      ):(
+        <h1>Results not found</h1>
+      )
+      }
+      else{
+        return movies.slice(0, visible).map((movie) => 
+          <div key={movie.id} className="container" >
+          <img className="photo" src={img1 + movie.poster_path} alt="" />
+          </div>
+      )
+    }
+}
+  return ( 
+        <div>
+        <div className="search">
+            <input className='input' type="text" placeholder="Search Movie and click Enter" onChange={(e)=> setSearch(e.target.value)}/>
+            <SearchIcon className='icon'/>
+            </div>
 
-  function mapping(){
-    return movies.slice(0, visible).map((movie,id)=><Layout key={id} src={movie.poster_path} />)
-  }
+            <div className='main_header'>
+                <h1>Popular Movies</h1>
+              </div>
+              <div className='mov'>
 
-  return (
-  <div >
-    <div className='mov'>
-    {mapping()}
-    </div>
+            {result()}
 
-<button onClick={showMoreItems} className='button'>Load More</button>
-  </div>
+            </div>
+
+            <button onClick={showMoreItems} className='button'>Load More</button>
+            </div>
   );
 }
 
 export default Main;
+ 

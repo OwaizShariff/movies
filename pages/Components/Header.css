@@ -65,7 +65,7 @@
     background: black;
     font-size: 28px;
     box-sizing: border-box;
-    color: black;
+    color: white;
     border-color: black;
     padding: 20px;
     background: transparent;
@@ -147,12 +147,12 @@ input::placeholder{
     }
     .img_h{
         position: absolute;
-        top: 40vh;
+        top: 70vh;
         left: 5vw;
     }
     .img-p{
         position: absolute;
-        top: 45vh;
+        top: 80vh;
         left: 5vw;
     }
     .main_header{
