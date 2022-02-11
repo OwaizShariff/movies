@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import axios from "axios";
+import Link from 'next/link';
 
 function movie() {
     const router = useRouter();
@@ -68,28 +69,28 @@ function movie() {
           <img className='logo-one'  src="https://mini-movie-app.netlify.app/static/media/tmdb_logo.30cd724b.svg" />
       </header>
       <div className='header_'>
-          <h1 className='line'>Home</h1>
+         <Link href="/"><h1 className='line'>Home</h1></Link> 
           <p className='line'>|</p>
           <p className='line'>{mov.title}</p>
       </div>
-      <div> 
+      <div className='background_div'> 
       <img className='banner_drop' src={img_one + mov.backdrop_path} alt="" />
-        <div className='background_one'>
-        
-        <div className='details_'>
+      
+      
+      <div className='background_one'>
+      <div className='details_'>
         <h1>{mov.title}</h1>
         <h3 className='plot'>PLOT</h3>
         <p className='plot'>{mov.overview}</p>
         <h3 className='plot'>IMDB RATING</h3>
         <p className='rating'>{mov.vote_average}</p>
-        </div >
-        </div>
       </div>
-        <div>
-        <img className='img_two' src={img_two + mov.poster_path} alt=''/>
-        </div>
-       
+      </div>
+      <img className='img_two' src={img_two + mov.poster_path} alt=''  />
+    
+      </div>
         
+
         <div className='box'>
         <div className='box_o'>
         <p className='box_'>Running Time:</p>
