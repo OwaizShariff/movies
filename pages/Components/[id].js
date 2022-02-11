@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import axios from "axios";
 import Link from 'next/link';
 
-function movie() {
+function Movie() {
     const router = useRouter();
     const [mov, setMov] = React.useState([]);
     const [char, setChar] = React.useState([]);
@@ -117,4 +117,4 @@ function movie() {
   )
 }
 
-export default movie;
+export default Movie;
