@@ -73,13 +73,9 @@ function movie() {
           <p className='line'>{mov.title}</p>
       </div>
       <div> 
-          <img className='banner_drop' src={img_one + mov.backdrop_path} alt="" />
-      </div>
+      <img className='banner_drop' src={img_one + mov.backdrop_path} alt="" />
         <div className='background_one'>
-        </div>
-        <div>
-            <img className='img_two' src={img_two + mov.poster_path} alt=''/>
-        </div>
+        
         <div className='details_'>
         <h1>{mov.title}</h1>
         <h3 className='plot'>PLOT</h3>
@@ -87,6 +83,12 @@ function movie() {
         <h3 className='plot'>IMDB RATING</h3>
         <p className='rating'>{mov.vote_average}</p>
         </div >
+        </div>
+      </div>
+        <div>
+        <img className='img_two' src={img_two + mov.poster_path} alt=''/>
+        </div>
+       
         
         <div className='box'>
         <div className='box_o'>
@@ -108,14 +110,7 @@ function movie() {
 
         <div className='cards'>
               {mapchar()}
-           </div>
-
-        
-            
-            
-
-       
-            
+           </div>     
     </div>
   
   )
