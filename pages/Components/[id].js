@@ -95,6 +95,7 @@ function Movie() {
       </div>
         <div className='box'>
         <div className='box_o'>
+        
         <p className='box_'>Running Time:</p>
         <p className='box_'>{mov.runtime} minutes</p>
         </div>

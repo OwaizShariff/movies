@@ -9,6 +9,7 @@ function Details(props) {
   return(
     <Link href={`/Components/${props.id}`} key={props.id}>
     <div className="container" >
+      
     <img className="photo" src={img1 + props.movie} alt="" />
     </div> 
     </Link>
